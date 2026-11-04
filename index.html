@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0b0d">
+<title>GARDIS | ربات ساز گاردیس</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0b0b0d;color:#f5f5f5;font-family:Tahoma,Arial,sans-serif;line-height:1.9}
+:root{--gold:#d9ad52;--panel:#171719;--muted:#aaa}
+header{height:70px;padding:0 6%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #292929;position:sticky;top:0;background:#0b0b0df2;z-index:5}
+.logo{font-size:22px;font-weight:bold;color:var(--gold);letter-spacing:2px}
+nav{display:flex;gap:10px;align-items:center}
+button{cursor:pointer;border:0;border-radius:10px;padding:11px 19px;font-weight:bold;font-size:14px}
+.primary{background:var(--gold);color:#17120a}
+.secondary{background:#252527;color:white;border:1px solid #383838}
+main{max-width:1050px;margin:auto;padding:35px 18px}
+.page{display:none}.page.active{display:block}
+.hero{text-align:center;padding:65px 12px 45px}
+.tag{display:inline-block;border:1px solid #725b2e;color:var(--gold);border-radius:30px;padding:5px 15px;font-size:12px}
+h1{font-size:clamp(30px,6vw,54px);line-height:1.5;margin:18px 0 8px}
+.gold{color:var(--gold)}
+.desc{color:#bbb;max-width:620px;margin:12px auto 25px}
+.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.section-title{text-align:center;margin:35px 0 22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.card{background:var(--panel);border:1px solid #29292d;border-radius:16px;padding:20px}
+.card h3{margin:0 0 8px;color:var(--gold)}
+.card p{margin:0;color:#bbb;font-size:14px}
+.create{margin:35px 0;background:linear-gradient(135deg,#292216,#171719 65%);border:1px solid #70572b;border-radius:18px;padding:28px;text-align:center}
+.create h2{color:var(--gold);margin-top:0}
+input{width:100%;padding:14px;margin:8px 0;background:#101012;border:1px solid #383838;border-radius:10px;color:white;font-size:15px;outline:none}
+input:focus{border-color:var(--gold)}
+.auth{max-width:430px;margin:35px auto}
+.auth .card{padding:25px}
+.auth h2{text-align:center;color:var(--gold)}
+.muted{color:var(--muted);font-size:13px}
+.link{color:var(--gold);cursor:pointer;text-decoration:underline}
+.notice{margin-top:15px;padding:12px;border:1px solid #66532d;border-radius:10px;color:#e5c77f;font-size:13px}
+footer{text-align:center;color:#777;border-top:1px solid #292929;padding:25px;margin-top:45px;font-size:12px}
+@media(max-width:600px){header{padding:0 4%;height:62px}.logo{font-size:18px}nav button{padding:9px 11px;font-size:12px}.hero{padding-top:42px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">GARDIS</div>
+  <nav>
+    <button class="secondary" onclick="showPage('home')">خانه</button>
+    <button class="primary" onclick="showPage('login')">ورود</button>
+  </nav>
+</header>
+
+<main>
+<section id="home" class="page active">
+  <div class="hero">
+    <span class="tag">GARDIS BOT MAKER</span>
+    <h1>ربات ساز <span class="gold">گاردیس</span></h1>
+    <p class="desc">ربات روبیکای خودت رو بساز، امکاناتش رو انتخاب کن و از یک پنل اختصاصی مدیریتش کن.</p>
+    <div class="actions">
+      <button class="primary" onclick="showPage('register')">شروع ساخت ربات</button>
+      <button class="secondary" onclick="showPage('login')">ورود به حساب</button>
+    </div>
+  </div>
+
+  <h2 class="section-title">امکانات گاردیس</h2>
+  <div class="grid">
+    <div class="card"><h3>🛡️ مدیریت گروه</h3><p>ابزارهای مدیریتی برای کنترل و نظم گروه روبیکا.</p></div>
+    <div class="card"><h3>🔒 امنیت گروه</h3><p>امکانات ضد لینک، ضد اسپم و سیستم هشدار.</p></div>
+    <div class="card"><h3>🎮 سرگرمی</h3><p>بازی‌ها و سرگرمی‌های متنوع برای اعضای گروه.</p></div>
+    <div class="card"><h3>📊 آمار و تنظیمات</h3><p>مشاهده آمار و مدیریت تنظیمات ربات.</p></div>
+  </div>
+
+  <div class="create">
+    <h2>آماده ساخت ربات خودت هستی؟</h2>
+    <p class="muted">برای شروع، وارد حساب کاربری شو یا یک حساب جدید بساز.</p>
+    <button class="primary" onclick="showPage('register')">ساخت ربات</button>
+  </div>
+</section>
+
+<section id="login" class="page auth">
+  <div class="card">
+    <h2>ورود به گاردیس</h2>
+    <p class="muted">برای ورود به پنل کاربری</p>
+    <form onsubmit="demoMessage(event)">
+      <input type="text" placeholder="نام کاربری یا ایمیل" required>
+      <input type="password" placeholder="رمز عبور" required>
+      <button class="primary" style="width:100%">ورود</button>
+    </form>
+    <p class="muted">حساب نداری؟ <span class="link" onclick="showPage('register')">ثبت‌نام کن</span></p>
+    <div class="notice">ورود واقعی پس از اتصال امن بک‌اند فعال می‌شود.</div>
+  </div>
+</section>
+
+<section id="register" class="page auth">
+  <div class="card">
+    <h2>ساخت حساب کاربری</h2>
+    <p class="muted">برای استفاده از ربات‌ساز گاردیس</p>
+    <form onsubmit="demoMessage(event)">
+      <input type="text" placeholder="نام کاربری" required>
+      <input type="email" placeholder="ایمیل" required>
+      <input type="password" placeholder="رمز عبور" required>
+      <button class="primary" style="width:100%">ثبت‌نام</button>
+    </form>
+    <p class="muted">قبلاً حساب ساخته‌ای؟ <span class="link" onclick="showPage('login')">وارد شو</span></p>
+    <div class="notice">ثبت‌نام واقعی پس از اتصال امن بک‌اند فعال می‌شود.</div>
+  </div>
+</section>
+</main>
+
+<footer>GARDIS BOT MAKER · ربات ساز گاردیس</footer>
+
+<script>
+function showPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const page=document.getElementById(id);
+  if(page) page.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function demoMessage(event){
+  event.preventDefault();
+  alert('این بخش هنوز به سرور ورود و ثبت‌نام متصل نشده است.');
+}
+</script>
+</body>
+</html>
