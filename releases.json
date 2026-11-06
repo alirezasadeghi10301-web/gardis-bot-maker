@@ -1,0 +1,23 @@
+{
+  "app_name": "GARDIS",
+  "latest_version": "1.0.0",
+  "release_date": "2026-11-06",
+  "platform": "web",
+  "download_url": "./",
+  "release_notes": [
+    "انتشار اولیه GARDIS",
+    "طراحی رابط کاربری مشکی و طلایی",
+    "آماده‌سازی سیستم انتشار و دریافت آپدیت"
+  ],
+  "releases": [
+    {
+      "version": "1.0.0",
+      "date": "2026-11-06",
+      "notes": [
+        "انتشار اولیه GARDIS",
+        "طراحی رابط کاربری جدید"
+      ],
+      "download_url": "./"
+    }
+  ]
+}
