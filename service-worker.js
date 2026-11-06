@@ -1,5 +1,5 @@
 
-const CACHE_NAME = 'gardis-cache-v1';
+const CACHE_NAME = 'gardis-cache-v2';
 
 const APP_FILES = [
   './',
@@ -10,54 +10,96 @@ const APP_FILES = [
 
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.addAll(APP_FILES);
-    })
+    (async () => {
+      const cache = await caches.open(CACHE_NAME);
+      await cache.addAll(APP_FILES);
+    })()
   );
-
-  self.skipWaiting();
 });
 
 self.addEventListener('activate', event => {
   event.waitUntil(
-    caches.keys().then(keys => {
-      return Promise.all(
+    (async () => {
+      const keys = await caches.keys();
+
+      await Promise.all(
         keys
-          .filter(key => key.startsWith('gardis-cache-') && key !== CACHE_NAME)
+          .filter(key =>
+            key.startsWith('gardis-cache-') &&
+            key !== CACHE_NAME
+          )
           .map(key => caches.delete(key))
       );
-    })
-  );
 
-  self.clients.claim();
+      await self.clients.claim();
+    })()
+  );
 });
 
 self.addEventListener('fetch', event => {
-  if (event.request.method !== 'GET') return;
+  const request = event.request;
 
-  const url = new URL(event.request.url);
+  if (request.method !== 'GET') return;
+
+  const url = new URL(request.url);
 
   if (url.origin !== self.location.origin) return;
 
   if (url.pathname.endsWith('/releases.json')) {
     event.respondWith(
-      fetch(event.request, { cache: 'no-store' })
-        .catch(() => caches.match(event.request))
+      fetch(request, { cache: 'no-store' })
+        .catch(async () => {
+          const cached = await caches.match(request);
+
+          if (cached) return cached;
+
+          return new Response(
+            JSON.stringify({
+              error: 'اطلاعات نسخه در دسترس نیست'
+            }),
+            {
+              status: 503,
+              headers: {
+                'Content-Type': 'application/json; charset=utf-8'
+              }
+            }
+          );
+        })
     );
     return;
   }
 
   event.respondWith(
-    fetch(event.request)
-      .then(response => {
+    (async () => {
+      try {
+        const response = await fetch(request, {
+          cache: 'no-cache'
+        });
+
         if (response.ok) {
-          const copy = response.clone();
-          caches.open(CACHE_NAME).then(cache => {
-            cache.put(event.request, copy);
-          });
+          const cache = await caches.open(CACHE_NAME);
+          await cache.put(request, response.clone());
         }
+
         return response;
-      })
-      .catch(() => caches.match(event.request))
+      } catch (error) {
+        const cached = await caches.match(request);
+
+        if (cached) return cached;
+
+        if (request.mode === 'navigate') {
+          const home = await caches.match('./index.html');
+
+          if (home) return home;
+        }
+
+        return new Response('اتصال اینترنت برقرار نیست.', {
+          status: 503,
+          headers: {
+            'Content-Type': 'text/plain; charset=utf-8'
+          }
+        });
+      }
+    })()
   );
 });
