@@ -1,0 +1,13 @@
+{
+  "name": "GARDIS | ربات ساز گاردیس",
+  "short_name": "GARDIS",
+  "description": "ربات ساز گاردیس؛ ساخت و مدیریت ربات روبیکا",
+  "lang": "fa",
+  "dir": "rtl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#0b0b0b",
+  "background_color": "#0b0b0b"
+}
