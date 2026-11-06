@@ -1,5 +1,4 @@
-
-const CACHE_NAME = 'gardis-cache-v2';
+const CACHE_NAME = 'gardis-cache-v3';
 
 const APP_FILES = [
   './',
@@ -10,10 +9,9 @@ const APP_FILES = [
 
 self.addEventListener('install', event => {
   event.waitUntil(
-    (async () => {
-      const cache = await caches.open(CACHE_NAME);
-      await cache.addAll(APP_FILES);
-    })()
+    caches.open(CACHE_NAME).then(cache => {
+      return cache.addAll(APP_FILES);
+    })
   );
 });
 
@@ -36,6 +34,12 @@ self.addEventListener('activate', event => {
   );
 });
 
+self.addEventListener('message', event => {
+  if (event.data === 'GARDIS_SKIP_WAITING') {
+    self.skipWaiting();
+  }
+});
+
 self.addEventListener('fetch', event => {
   const request = event.request;
 
@@ -47,24 +51,21 @@ self.addEventListener('fetch', event => {
 
   if (url.pathname.endsWith('/releases.json')) {
     event.respondWith(
-      fetch(request, { cache: 'no-store' })
-        .catch(async () => {
-          const cached = await caches.match(request);
+      fetch(request, { cache: 'no-store' }).catch(async () => {
+        const cached = await caches.match(request);
 
-          if (cached) return cached;
+        if (cached) return cached;
 
-          return new Response(
-            JSON.stringify({
-              error: 'اطلاعات نسخه در دسترس نیست'
-            }),
-            {
-              status: 503,
-              headers: {
-                'Content-Type': 'application/json; charset=utf-8'
-              }
+        return new Response(
+          JSON.stringify({ error: 'اطلاعات نسخه در دسترس نیست' }),
+          {
+            status: 503,
+            headers: {
+              'Content-Type': 'application/json; charset=utf-8'
             }
-          );
-        })
+          }
+        );
+      })
     );
     return;
   }
@@ -89,7 +90,6 @@ self.addEventListener('fetch', event => {
 
         if (request.mode === 'navigate') {
           const home = await caches.match('./index.html');
-
           if (home) return home;
         }
 
