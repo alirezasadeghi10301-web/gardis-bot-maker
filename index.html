@@ -1,66 +1,270 @@
-
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0b0b0d">
+<meta name="description" content="GARDIS BOT MAKER - ربات ساز گاردیس">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="GARDIS">
+
+<link rel="manifest" href="./manifest.json">
+<link rel="icon" href="./icon.svg" type="image/svg+xml">
+
 <title>GARDIS | ربات ساز گاردیس</title>
 
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#0b0b0d;color:#f5f5f5;font-family:Tahoma,Arial,sans-serif;line-height:1.9}
-:root{--gold:#d9ad52;--panel:#171719;--muted:#aaa}
-header{height:70px;padding:0 6%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #292929;position:sticky;top:0;background:#0b0b0df2;z-index:5}
-.logo{font-size:22px;font-weight:bold;color:var(--gold);letter-spacing:2px}
-nav{display:flex;gap:8px;align-items:center}
-button{cursor:pointer;border:0;border-radius:10px;padding:11px 15px;font-weight:bold;font-size:13px}
-.primary{background:var(--gold);color:#17120a}
-.secondary{background:#252527;color:white;border:1px solid #383838}
-main{max-width:1050px;margin:auto;padding:35px 18px}
-.page{display:none}.page.active{display:block}
-.hero{text-align:center;padding:65px 12px 45px}
-.tag{display:inline-block;border:1px solid #725b2e;color:var(--gold);border-radius:30px;padding:5px 15px;font-size:12px}
-h1{font-size:clamp(30px,6vw,54px);line-height:1.5;margin:18px 0 8px}
+:root{
+ --gold:#d9ad52;
+ --panel:#171719;
+ --muted:#aaa;
+}
+body{
+ margin:0;
+ background:#0b0b0d;
+ color:#f5f5f5;
+ font-family:Tahoma,Arial,sans-serif;
+ line-height:1.9;
+}
+header{
+ height:70px;
+ padding:0 5%;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ border-bottom:1px solid #292929;
+ position:sticky;
+ top:0;
+ background:#0b0b0df2;
+ z-index:5;
+}
+.logo{
+ font-size:22px;
+ font-weight:bold;
+ color:var(--gold);
+ letter-spacing:2px;
+}
+nav{
+ display:flex;
+ gap:8px;
+ align-items:center;
+}
+button{
+ cursor:pointer;
+ border:0;
+ border-radius:10px;
+ padding:11px 15px;
+ font-weight:bold;
+ font-size:13px;
+}
+.primary{
+ background:var(--gold);
+ color:#17120a;
+}
+.secondary{
+ background:#252527;
+ color:white;
+ border:1px solid #383838;
+}
+main{
+ max-width:1050px;
+ margin:auto;
+ padding:35px 18px;
+}
+.page{display:none}
+.page.active{display:block}
+.hero{
+ text-align:center;
+ padding:65px 12px 45px;
+}
+.tag{
+ display:inline-block;
+ border:1px solid #725b2e;
+ color:var(--gold);
+ border-radius:30px;
+ padding:5px 15px;
+ font-size:12px;
+}
+h1{
+ font-size:clamp(30px,6vw,54px);
+ line-height:1.5;
+ margin:18px 0 8px;
+}
 .gold{color:var(--gold)}
-.desc{color:#bbb;max-width:620px;margin:12px auto 25px}
-.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
-.section-title{text-align:center;margin:35px 0 22px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
-.card{background:var(--panel);border:1px solid #29292d;border-radius:16px;padding:20px}
-.card h3{margin:0 0 8px;color:var(--gold)}
-.card p{margin:0;color:#bbb;font-size:14px}
-.create{margin:35px 0;background:linear-gradient(135deg,#292216,#171719 65%);border:1px solid #70572b;border-radius:18px;padding:28px;text-align:center}
-.create h2{color:var(--gold);margin-top:0}
-input{width:100%;padding:14px;margin:8px 0;background:#101012;border:1px solid #383838;border-radius:10px;color:white;font-size:15px;outline:none}
+.desc{
+ color:#bbb;
+ max-width:620px;
+ margin:12px auto 25px;
+}
+.actions{
+ display:flex;
+ gap:12px;
+ justify-content:center;
+ flex-wrap:wrap;
+}
+.section-title{
+ text-align:center;
+ margin:35px 0 22px;
+}
+.grid{
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+ gap:14px;
+}
+.card{
+ background:var(--panel);
+ border:1px solid #29292d;
+ border-radius:16px;
+ padding:20px;
+}
+.card h3{
+ margin:0 0 8px;
+ color:var(--gold);
+}
+.card p{
+ margin:0;
+ color:#bbb;
+ font-size:14px;
+}
+.create{
+ margin:35px 0;
+ background:linear-gradient(135deg,#292216,#171719 65%);
+ border:1px solid #70572b;
+ border-radius:18px;
+ padding:28px;
+ text-align:center;
+}
+.create h2{
+ color:var(--gold);
+ margin-top:0;
+}
+input{
+ width:100%;
+ padding:14px;
+ margin:8px 0;
+ background:#101012;
+ border:1px solid #383838;
+ border-radius:10px;
+ color:white;
+ font-size:15px;
+ outline:none;
+}
 input:focus{border-color:var(--gold)}
-.auth{max-width:430px;margin:35px auto}
+.auth{
+ max-width:430px;
+ margin:35px auto;
+}
 .auth .card{padding:25px}
-.auth h2{text-align:center;color:var(--gold)}
-.muted{color:var(--muted);font-size:13px}
-.link{color:var(--gold);cursor:pointer;text-decoration:underline}
-.notice{margin-top:15px;padding:12px;border:1px solid #66532d;border-radius:10px;color:#e5c77f;font-size:13px}
-footer{text-align:center;color:#777;border-top:1px solid #292929;padding:25px;margin-top:45px;font-size:12px}
+.auth h2{
+ text-align:center;
+ color:var(--gold);
+}
+.muted{
+ color:var(--muted);
+ font-size:13px;
+}
+.link{
+ color:var(--gold);
+ cursor:pointer;
+ text-decoration:underline;
+}
+.notice{
+ margin-top:15px;
+ padding:12px;
+ border:1px solid #66532d;
+ border-radius:10px;
+ color:#e5c77f;
+ font-size:13px;
+}
+footer{
+ text-align:center;
+ color:#777;
+ border-top:1px solid #292929;
+ padding:25px;
+ margin-top:45px;
+ font-size:12px;
+}
 
-/* Updates */
-.update-banner{display:none;background:#282116;border:1px solid #9a7637;border-radius:14px;padding:15px;margin:15px 0 25px}
+/* Release Center */
+.update-banner{
+ display:none;
+ background:#282116;
+ border:1px solid #9a7637;
+ border-radius:14px;
+ padding:15px;
+ margin:15px 0 25px;
+}
 .update-banner strong{color:var(--gold)}
-.update-banner p{margin:5px 0 12px;font-size:13px;color:#ddd}
-.release-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
-.version{color:var(--gold);font-size:25px;font-weight:bold}
-.release-date{color:#999;font-size:12px}
-.release-notes{padding:0 20px;color:#ddd;font-size:14px}
+.update-banner p{
+ margin:5px 0 12px;
+ font-size:13px;
+ color:#ddd;
+}
+.release-head{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ flex-wrap:wrap;
+ gap:12px;
+}
+.version{
+ color:var(--gold);
+ font-size:25px;
+ font-weight:bold;
+}
+.release-date{
+ color:#999;
+ font-size:12px;
+}
+.release-notes{
+ padding:0 20px;
+ color:#ddd;
+ font-size:14px;
+}
 .release-notes li{margin:7px 0}
 .release-card{margin:15px 0}
-.release-label{display:inline-block;background:#302719;color:var(--gold);padding:3px 10px;border-radius:20px;font-size:11px}
-.download-link{display:inline-block;text-decoration:none;background:var(--gold);color:#17120a;padding:10px 18px;border-radius:10px;font-size:13px;font-weight:bold;margin-top:12px}
-.status-text{color:#aaa;font-size:13px;margin-top:12px}
-.empty{color:#999;text-align:center;padding:20px}
+.release-label{
+ display:inline-block;
+ background:#302719;
+ color:var(--gold);
+ padding:3px 10px;
+ border-radius:20px;
+ font-size:11px;
+}
+.download-link{
+ display:inline-block;
+ text-decoration:none;
+ background:var(--gold);
+ color:#17120a;
+ padding:10px 18px;
+ border-radius:10px;
+ font-size:13px;
+ font-weight:bold;
+ margin-top:12px;
+}
+.status-text{
+ color:#aaa;
+ font-size:13px;
+ margin-top:12px;
+}
+.empty{
+ color:#999;
+ text-align:center;
+ padding:20px;
+}
 @media(max-width:600px){
- header{padding:0 3%;height:62px}
+ header{
+  padding:0 3%;
+  height:62px;
+ }
  .logo{font-size:17px}
  nav{gap:5px}
- nav button{padding:8px 9px;font-size:11px}
+ nav button{
+  padding:8px 9px;
+  font-size:11px;
+ }
  .hero{padding-top:42px}
  .release-head{display:block}
 }
@@ -70,243 +274,407 @@ footer{text-align:center;color:#777;border-top:1px solid #292929;padding:25px;ma
 <body>
 
 <header>
-  <div class="logo">GARDIS</div>
-  <nav>
-    <button class="secondary" onclick="showPage('home')">خانه</button>
-    <button class="secondary" onclick="showPage('releases')">آپدیت‌ها</button>
-    <button class="primary" onclick="showPage('login')">ورود</button>
-  </nav>
+ <div class="logo">GARDIS</div>
+ <nav>
+  <button class="secondary" onclick="showPage('home')">خانه</button>
+  <button class="secondary" onclick="showPage('releases')">آپدیت‌ها</button>
+  <button class="primary" onclick="showPage('login')">ورود</button>
+ </nav>
 </header>
 
 <main>
 
 <div id="updateBanner" class="update-banner">
-  <strong>نسخه جدید گاردیس منتشر شد!</strong>
-  <p id="updateMessage">یک نسخه جدید برای دریافت آماده است.</p>
-  <button class="primary" onclick="showPage('releases')">مشاهده و دریافت آپدیت</button>
+ <strong>نسخه جدید گاردیس منتشر شد!</strong>
+ <p id="updateMessage">یک نسخه جدید برای دریافت آماده است.</p>
+ <button class="primary" onclick="showPage('releases')">
+  مشاهده آپدیت
+ </button>
 </div>
 
+<!-- Home -->
 <section id="home" class="page active">
-  <div class="hero">
-    <span class="tag">GARDIS BOT MAKER</span>
-    <h1>ربات ساز <span class="gold">گاردیس</span></h1>
-    <p class="desc">ربات روبیکای خودت رو بساز، امکاناتش رو انتخاب کن و از یک پنل اختصاصی مدیریتش کن.</p>
-    <div class="actions">
-      <button class="primary" onclick="showPage('register')">شروع ساخت ربات</button>
-      <button class="secondary" onclick="showPage('login')">ورود به حساب</button>
-      <button class="secondary" onclick="showPage('releases')">مشاهده نسخه‌ها</button>
-    </div>
+
+ <div class="hero">
+  <span class="tag">GARDIS BOT MAKER</span>
+
+  <h1>ربات ساز <span class="gold">گاردیس</span></h1>
+
+  <p class="desc">
+   ربات روبیکای خودت رو بساز، امکاناتش رو انتخاب کن
+   و از یک پنل اختصاصی مدیریتش کن.
+  </p>
+
+  <div class="actions">
+   <button class="primary" onclick="showPage('register')">
+    شروع ساخت ربات
+   </button>
+
+   <button class="secondary" onclick="showPage('login')">
+    ورود به حساب
+   </button>
+
+   <button class="secondary" onclick="showPage('releases')">
+    مشاهده نسخه‌ها
+   </button>
+  </div>
+ </div>
+
+ <h2 class="section-title">امکانات گاردیس</h2>
+
+ <div class="grid">
+  <div class="card">
+   <h3>🛡️ مدیریت گروه</h3>
+   <p>ابزارهای مدیریتی برای کنترل و نظم گروه روبیکا.</p>
   </div>
 
-  <h2 class="section-title">امکانات گاردیس</h2>
-  <div class="grid">
-    <div class="card"><h3>🛡️ مدیریت گروه</h3><p>ابزارهای مدیریتی برای کنترل و نظم گروه روبیکا.</p></div>
-    <div class="card"><h3>🔒 امنیت گروه</h3><p>امکانات ضد لینک، ضد اسپم و سیستم هشدار.</p></div>
-    <div class="card"><h3>🎮 سرگرمی</h3><p>بازی‌ها و سرگرمی‌های متنوع برای اعضای گروه.</p></div>
-    <div class="card"><h3>📊 آمار و تنظیمات</h3><p>مشاهده آمار و مدیریت تنظیمات ربات.</p></div>
+  <div class="card">
+   <h3>🔒 امنیت گروه</h3>
+   <p>امکانات ضد لینک، ضد اسپم و سیستم هشدار.</p>
   </div>
 
-  <div class="create">
-    <h2>آماده ساخت ربات خودت هستی؟</h2>
-    <p class="muted">برای شروع، وارد حساب کاربری شو یا یک حساب جدید بساز.</p>
-    <button class="primary" onclick="showPage('register')">ساخت ربات</button>
+  <div class="card">
+   <h3>🎮 سرگرمی</h3>
+   <p>بازی‌ها و سرگرمی‌های متنوع برای اعضای گروه.</p>
   </div>
+
+  <div class="card">
+   <h3>📊 آمار و تنظیمات</h3>
+   <p>مشاهده آمار و مدیریت تنظیمات ربات.</p>
+  </div>
+ </div>
+
+ <div class="create">
+  <h2>آماده ساخت ربات خودت هستی؟</h2>
+  <p class="muted">
+   برای شروع، وارد حساب کاربری شو یا یک حساب جدید بساز.
+  </p>
+  <button class="primary" onclick="showPage('register')">
+   ساخت ربات
+  </button>
+ </div>
+
 </section>
 
+<!-- Releases -->
 <section id="releases" class="page">
-  <div class="hero">
-    <span class="tag">GARDIS RELEASE CENTER</span>
-    <h1>انتشار <span class="gold">نسخه‌ها</span></h1>
-    <p class="desc">آخرین تغییرات، امکانات جدید و نسخه‌های منتشرشده گاردیس را از این قسمت دنبال کن.</p>
+
+ <div class="hero">
+  <span class="tag">GARDIS RELEASE CENTER</span>
+
+  <h1>انتشار <span class="gold">نسخه‌ها</span></h1>
+
+  <p class="desc">
+   آخرین تغییرات، امکانات جدید و نسخه‌های منتشرشده
+   گاردیس را از این قسمت دنبال کن.
+  </p>
+ </div>
+
+ <div class="card release-card">
+
+  <div class="release-head">
+   <div>
+    <span class="release-label">آخرین نسخه</span>
+    <h2 class="version" id="latestVersion">در حال دریافت...</h2>
+    <div class="release-date" id="latestDate"></div>
+   </div>
+
+   <span class="tag" id="platformLabel">GARDIS</span>
   </div>
 
-  <div class="card release-card">
-    <div class="release-head">
-      <div>
-        <span class="release-label">آخرین نسخه</span>
-        <h2 class="version" id="latestVersion">در حال دریافت...</h2>
-        <div class="release-date" id="latestDate"></div>
-      </div>
-      <span class="tag" id="platformLabel">GARDIS</span>
-    </div>
+  <h3>تغییرات این نسخه</h3>
 
-    <h3>تغییرات این نسخه</h3>
-    <ul class="release-notes" id="latestNotes">
-      <li>در حال بارگذاری اطلاعات...</li>
-    </ul>
+  <ul class="release-notes" id="latestNotes">
+   <li>در حال بارگذاری اطلاعات...</li>
+  </ul>
 
-    <a id="downloadButton" class="download-link" href="./">دریافت نسخه</a>
-    <p class="status-text" id="releaseStatus"></p>
+  <a id="downloadButton" class="download-link" href="./">
+   دریافت نسخه
+  </a>
+
+  <p class="status-text" id="releaseStatus">
+   در حال بررسی نسخه‌ها...
+  </p>
+
+ </div>
+
+ <h2 class="section-title">تاریخچه انتشار</h2>
+
+ <div id="releaseHistory">
+  <div class="card empty">
+   در حال دریافت تاریخچه نسخه‌ها...
   </div>
+ </div>
 
-  <h2 class="section-title">تاریخچه انتشار</h2>
-  <div id="releaseHistory">
-    <div class="card empty">در حال دریافت تاریخچه نسخه‌ها...</div>
-  </div>
 </section>
 
+<!-- Login -->
 <section id="login" class="page auth">
-  <div class="card">
-    <h2>ورود به گاردیس</h2>
-    <p class="muted">برای ورود به پنل کاربری</p>
-    <form onsubmit="demoMessage(event)">
-      <input type="text" placeholder="نام کاربری یا ایمیل" required>
-      <input type="password" placeholder="رمز عبور" required>
-      <button class="primary" style="width:100%">ورود</button>
-    </form>
-    <p class="muted">حساب نداری؟ <span class="link" onclick="showPage('register')">ثبت‌نام کن</span></p>
-    <div class="notice">ورود واقعی پس از اتصال امن بک‌اند فعال می‌شود.</div>
+ <div class="card">
+  <h2>ورود به گاردیس</h2>
+  <p class="muted">برای ورود به پنل کاربری</p>
+
+  <form onsubmit="demoMessage(event)">
+   <input type="text" placeholder="نام کاربری یا ایمیل" required>
+   <input type="password" placeholder="رمز عبور" required>
+   <button class="primary" style="width:100%">ورود</button>
+  </form>
+
+  <p class="muted">
+   حساب نداری؟
+   <span class="link" onclick="showPage('register')">ثبت‌نام کن</span>
+  </p>
+
+  <div class="notice">
+   ورود واقعی پس از اتصال امن بک‌اند فعال می‌شود.
   </div>
+ </div>
 </section>
 
+<!-- Register -->
 <section id="register" class="page auth">
-  <div class="card">
-    <h2>ساخت حساب کاربری</h2>
-    <p class="muted">برای استفاده از ربات‌ساز گاردیس</p>
-    <form onsubmit="demoMessage(event)">
-      <input type="text" placeholder="نام کاربری" required>
-      <input type="email" placeholder="ایمیل" required>
-      <input type="password" placeholder="رمز عبور" required>
-      <button class="primary" style="width:100%">ثبت‌نام</button>
-    </form>
-    <p class="muted">قبلاً حساب ساخته‌ای؟ <span class="link" onclick="showPage('login')">وارد شو</span></p>
-    <div class="notice">ثبت‌نام واقعی پس از اتصال امن بک‌اند فعال می‌شود.</div>
+ <div class="card">
+  <h2>ساخت حساب کاربری</h2>
+  <p class="muted">برای استفاده از ربات‌ساز گاردیس</p>
+
+  <form onsubmit="demoMessage(event)">
+   <input type="text" placeholder="نام کاربری" required>
+   <input type="email" placeholder="ایمیل" required>
+   <input type="password" placeholder="رمز عبور" required>
+   <button class="primary" style="width:100%">ثبت‌نام</button>
+  </form>
+
+  <p class="muted">
+   قبلاً حساب ساخته‌ای؟
+   <span class="link" onclick="showPage('login')">وارد شو</span>
+  </p>
+
+  <div class="notice">
+   ثبت‌نام واقعی پس از اتصال امن بک‌اند فعال می‌شود.
   </div>
+ </div>
 </section>
 
 </main>
 
-<footer>GARDIS BOT MAKER · ربات ساز گاردیس</footer>
+<footer>
+ GARDIS BOT MAKER · ربات ساز گاردیس
+</footer>
 
 <script>
 const CURRENT_VERSION = "1.0.0";
+
 let releaseData = null;
 
 function showPage(id){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  const page=document.getElementById(id);
-  if(page) page.classList.add('active');
-  window.scrollTo({top:0,behavior:'smooth'});
+ document.querySelectorAll('.page').forEach(page=>{
+  page.classList.remove('active');
+ });
+
+ const page=document.getElementById(id);
+
+ if(page){
+  page.classList.add('active');
+ }
+
+ window.scrollTo({top:0,behavior:'smooth'});
 }
 
 function demoMessage(event){
-  event.preventDefault();
-  alert('این بخش هنوز به سرور ورود و ثبت‌نام متصل نشده است.');
+ event.preventDefault();
+
+ alert('این بخش هنوز به سرور ورود و ثبت‌نام متصل نشده است.');
 }
 
 function compareVersions(a,b){
-  const x=String(a).split('.').map(Number);
-  const y=String(b).split('.').map(Number);
-  for(let i=0;i<Math.max(x.length,y.length);i++){
-    const n=x[i]||0;
-    const m=y[i]||0;
-    if(n>m)return 1;
-    if(n<m)return -1;
-  }
-  return 0;
-}
+ const x=String(a).split('.').map(Number);
+ const y=String(b).split('.').map(Number);
 
-function makeNotes(list){
-  if(!Array.isArray(list)||list.length===0){
-    return '<li>توضیحات این نسخه ثبت نشده است.</li>';
-  }
-  return list.map(item=>'<li>'+escapeHTML(item)+'</li>').join('');
+ for(let i=0;i<Math.max(x.length,y.length);i++){
+  const n=x[i]||0;
+  const m=y[i]||0;
+
+  if(n>m)return 1;
+  if(n<m)return -1;
+ }
+
+ return 0;
 }
 
 function escapeHTML(value){
-  return String(value).replace(/[&<>"']/g,function(char){
-    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char];
-  });
+ return String(value).replace(/[&<>"']/g,function(char){
+  return {
+   '&':'&amp;',
+   '<':'&lt;',
+   '>':'&gt;',
+   '"':'&quot;',
+   "'":'&#39;'
+  }[char];
+ });
+}
+
+function makeNotes(list){
+ if(!Array.isArray(list)||list.length===0){
+  return '<li>توضیحات این نسخه ثبت نشده است.</li>';
+ }
+
+ return list.map(item=>{
+  return '<li>'+escapeHTML(item)+'</li>';
+ }).join('');
+}
+
+function safeURL(value){
+ if(!value)return null;
+
+ try{
+  const url=new URL(value,window.location.href);
+
+  if(url.protocol==='https:' || url.protocol==='http:'){
+   return url.href;
+  }
+
+  return null;
+ }catch(error){
+  return null;
+ }
 }
 
 async function loadReleases(){
-  const status=document.getElementById('releaseStatus');
 
-  try{
-    const response=await fetch('./releases.json?v='+Date.now(),{
-      cache:'no-store'
-    });
+ const status=document.getElementById('releaseStatus');
 
-    if(!response.ok) throw new Error('فایل نسخه‌ها پیدا نشد.');
+ try{
 
-    const data=await response.json();
-    if(!data.latest_version) throw new Error('اطلاعات نسخه معتبر نیست.');
+  const response=await fetch(
+   './releases.json?v='+Date.now(),
+   {cache:'no-store'}
+  );
 
-    releaseData=data;
-
-    document.getElementById('latestVersion').textContent=
-      'نسخه '+data.latest_version;
-
-    document.getElementById('latestDate').textContent=
-      'تاریخ انتشار: '+(data.release_date||'نامشخص');
-
-    document.getElementById('latestNotes').innerHTML=
-      makeNotes(data.release_notes);
-
-    document.getElementById('platformLabel').textContent=
-      data.platform==='android'?'نسخه اندروید':'نسخه وب';
-
-    const download=document.getElementById('downloadButton');
-
-    if(data.download_url){
-      download.href=data.download_url;
-      download.style.display='inline-block';
-      download.textContent=data.platform==='android'
-        ?'دریافت فایل APK'
-        :'باز کردن وب‌اپ';
-    }else{
-      download.style.display='none';
-    }
-
-    if(compareVersions(data.latest_version,CURRENT_VERSION)>0){
-      document.getElementById('updateBanner').style.display='block';
-      document.getElementById('updateMessage').textContent=
-        'نسخه '+data.latest_version+' منتشر شده است. نسخه فعلی شما '+CURRENT_VERSION+' است.';
-    }else{
-      document.getElementById('updateBanner').style.display='none';
-    }
-
-    renderHistory(data);
-    status.textContent='اطلاعات نسخه با موفقیت دریافت شد.';
-
-  }catch(error){
-    status.textContent='دریافت اطلاعات نسخه ناموفق بود. اتصال اینترنت را بررسی کن.';
-    document.getElementById('releaseHistory').innerHTML=
-      '<div class="card empty">فعلاً امکان دریافت تاریخچه نسخه‌ها وجود ندارد.</div>';
+  if(!response.ok){
+   throw new Error('فایل نسخه‌ها پیدا نشد.');
   }
+
+  const data=await response.json();
+
+  if(!data.latest_version){
+   throw new Error('اطلاعات نسخه معتبر نیست.');
+  }
+
+  releaseData=data;
+
+  document.getElementById('latestVersion').textContent=
+   'نسخه '+data.latest_version;
+
+  document.getElementById('latestDate').textContent=
+   'تاریخ انتشار: '+(data.release_date||'نامشخص');
+
+  document.getElementById('latestNotes').innerHTML=
+   makeNotes(data.release_notes);
+
+  document.getElementById('platformLabel').textContent=
+   data.platform==='android'?'نسخه اندروید':'نسخه وب';
+
+  const download=document.getElementById('downloadButton');
+  const downloadURL=safeURL(data.download_url);
+
+  if(downloadURL){
+
+   download.href=downloadURL;
+   download.style.display='inline-block';
+
+   download.textContent=
+    data.platform==='android'
+     ?'دریافت فایل APK'
+     :'باز کردن وب‌اپ';
+
+  }else{
+
+   download.style.display='none';
+
+  }
+
+  if(compareVersions(data.latest_version,CURRENT_VERSION)>0){
+
+   document.getElementById('updateBanner').style.display='block';
+
+   document.getElementById('updateMessage').textContent=
+    'نسخه '+data.latest_version+
+    ' منتشر شده است. نسخه فعلی این صفحه '+CURRENT_VERSION+' است.';
+
+  }else{
+
+   document.getElementById('updateBanner').style.display='none';
+
+  }
+
+  renderHistory(data);
+
+  status.textContent='اطلاعات نسخه با موفقیت دریافت شد.';
+
+ }catch(error){
+
+  status.textContent=
+   'دریافت اطلاعات نسخه ناموفق بود. اتصال اینترنت را بررسی کن.';
+
+  document.getElementById('releaseHistory').innerHTML=
+   '<div class="card empty">فعلاً امکان دریافت تاریخچه نسخه‌ها وجود ندارد.</div>';
+
+ }
 }
 
 function renderHistory(data){
-  const history=document.getElementById('releaseHistory');
-  const releases=Array.isArray(data.releases)?data.releases:[];
 
-  if(!releases.length){
-    history.innerHTML='<div class="card empty">هنوز نسخه دیگری منتشر نشده است.</div>';
-    return;
-  }
+ const history=document.getElementById('releaseHistory');
 
-  history.innerHTML=releases.map(release=>`
-    <div class="card release-card">
-      <div class="release-head">
-        <strong class="version">نسخه ${escapeHTML(release.version)}</strong>
-        <span class="release-date">${escapeHTML(release.date||'')}</span>
-      </div>
-      <ul class="release-notes">${makeNotes(release.notes)}</ul>
-      ${release.download_url
-        ?`<a class="download-link" href="${escapeHTML(release.download_url)}">دریافت این نسخه</a>`
-        :''}
+ const releases=Array.isArray(data.releases)
+  ?data.releases:[ ];
+
+ if(!releases.length){
+
+  history.innerHTML=
+   '<div class="card empty">هنوز نسخه دیگری منتشر نشده است.</div>';
+
+  return;
+ }
+
+ history.innerHTML=releases.map(release=>{
+
+  const url=safeURL(release.download_url);
+
+  const downloadButton=url
+   ?'<a class="download-link" href="'+escapeHTML(url)+'">دریافت این نسخه</a>'
+   :'';
+
+  return `
+   <div class="card release-card">
+
+    <div class="release-head">
+     <strong class="version">
+      نسخه ${escapeHTML(release.version||'نامشخص')}
+     </strong>
+
+     <span class="release-date">
+      ${escapeHTML(release.date||'')}
+     </span>
     </div>
-  `).join('');
+
+    <ul class="release-notes">
+     ${makeNotes(release.notes)}
+    </ul>
+
+    ${downloadButton}
+
+   </div>
+  `;
+
+ }).join('');
 }
 
-function applyUpdate(){
-  if(!releaseData)return;
-  const url=new URL(window.location.href);
-  url.searchParams.set('gardis_version',releaseData.latest_version);
-  window.location.replace(url.toString());
-}
+document.addEventListener('DOMContentLoaded',function(){
 
-document.addEventListener('DOMContentLoaded',loadReleases);
+ loadReleases();
+
+});
 </script>
 
 </body>
