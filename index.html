@@ -47,11 +47,7 @@ header{
  color:var(--gold);
  letter-spacing:2px;
 }
-nav{
- display:flex;
- gap:8px;
- align-items:center;
-}
+nav{display:flex;gap:8px;align-items:center}
 button{
  cursor:pointer;
  border:0;
@@ -60,26 +56,13 @@ button{
  font-weight:bold;
  font-size:13px;
 }
-.primary{
- background:var(--gold);
- color:#17120a;
-}
-.secondary{
- background:#252527;
- color:white;
- border:1px solid #383838;
-}
-main{
- max-width:1050px;
- margin:auto;
- padding:35px 18px;
-}
+button:disabled{opacity:.5;cursor:not-allowed}
+.primary{background:var(--gold);color:#17120a}
+.secondary{background:#252527;color:white;border:1px solid #383838}
+main{max-width:1050px;margin:auto;padding:35px 18px}
 .page{display:none}
 .page.active{display:block}
-.hero{
- text-align:center;
- padding:65px 12px 45px;
-}
+.hero{text-align:center;padding:65px 12px 45px}
 .tag{
  display:inline-block;
  border:1px solid #725b2e;
@@ -88,47 +71,15 @@ main{
  padding:5px 15px;
  font-size:12px;
 }
-h1{
- font-size:clamp(30px,6vw,54px);
- line-height:1.5;
- margin:18px 0 8px;
-}
+h1{font-size:clamp(30px,6vw,54px);line-height:1.5;margin:18px 0 8px}
 .gold{color:var(--gold)}
-.desc{
- color:#bbb;
- max-width:620px;
- margin:12px auto 25px;
-}
-.actions{
- display:flex;
- gap:12px;
- justify-content:center;
- flex-wrap:wrap;
-}
-.section-title{
- text-align:center;
- margin:35px 0 22px;
-}
-.grid{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
- gap:14px;
-}
-.card{
- background:var(--panel);
- border:1px solid #29292d;
- border-radius:16px;
- padding:20px;
-}
-.card h3{
- margin:0 0 8px;
- color:var(--gold);
-}
-.card p{
- margin:0;
- color:#bbb;
- font-size:14px;
-}
+.desc{color:#bbb;max-width:620px;margin:12px auto 25px}
+.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.section-title{text-align:center;margin:35px 0 22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.card{background:var(--panel);border:1px solid #29292d;border-radius:16px;padding:20px}
+.card h3{margin:0 0 8px;color:var(--gold)}
+.card p{margin:0;color:#bbb;font-size:14px}
 .create{
  margin:35px 0;
  background:linear-gradient(135deg,#292216,#171719 65%);
@@ -137,10 +88,7 @@ h1{
  padding:28px;
  text-align:center;
 }
-.create h2{
- color:var(--gold);
- margin-top:0;
-}
+.create h2{color:var(--gold);margin-top:0}
 input{
  width:100%;
  padding:14px;
@@ -153,24 +101,11 @@ input{
  outline:none;
 }
 input:focus{border-color:var(--gold)}
-.auth{
- max-width:430px;
- margin:35px auto;
-}
+.auth{max-width:430px;margin:35px auto}
 .auth .card{padding:25px}
-.auth h2{
- text-align:center;
- color:var(--gold);
-}
-.muted{
- color:var(--muted);
- font-size:13px;
-}
-.link{
- color:var(--gold);
- cursor:pointer;
- text-decoration:underline;
-}
+.auth h2{text-align:center;color:var(--gold)}
+.muted{color:var(--muted);font-size:13px}
+.link{color:var(--gold);cursor:pointer;text-decoration:underline}
 .notice{
  margin-top:15px;
  padding:12px;
@@ -196,11 +131,8 @@ footer{
  margin:15px 0 25px;
 }
 .update-banner strong{color:var(--gold)}
-.update-banner p{
- margin:5px 0 12px;
- font-size:13px;
- color:#ddd;
-}
+.update-banner p{margin:5px 0 12px;font-size:13px;color:#ddd}
+.update-actions{display:flex;gap:10px;flex-wrap:wrap}
 .release-head{
  display:flex;
  justify-content:space-between;
@@ -208,20 +140,9 @@ footer{
  flex-wrap:wrap;
  gap:12px;
 }
-.version{
- color:var(--gold);
- font-size:25px;
- font-weight:bold;
-}
-.release-date{
- color:#999;
- font-size:12px;
-}
-.release-notes{
- padding:0 20px;
- color:#ddd;
- font-size:14px;
-}
+.version{color:var(--gold);font-size:25px;font-weight:bold}
+.release-date{color:#999;font-size:12px}
+.release-notes{padding:0 20px;color:#ddd;font-size:14px}
 .release-notes li{margin:7px 0}
 .release-card{margin:15px 0}
 .release-label{
@@ -243,27 +164,13 @@ footer{
  font-weight:bold;
  margin-top:12px;
 }
-.status-text{
- color:#aaa;
- font-size:13px;
- margin-top:12px;
-}
-.empty{
- color:#999;
- text-align:center;
- padding:20px;
-}
+.status-text{color:#aaa;font-size:13px;margin-top:12px}
+.empty{color:#999;text-align:center;padding:20px}
 @media(max-width:600px){
- header{
-  padding:0 3%;
-  height:62px;
- }
+ header{padding:0 3%;height:62px}
  .logo{font-size:17px}
  nav{gap:5px}
- nav button{
-  padding:8px 9px;
-  font-size:11px;
- }
+ nav button{padding:8px 9px;font-size:11px}
  .hero{padding-top:42px}
  .release-head{display:block}
 }
@@ -284,11 +191,16 @@ footer{
 <main>
 
 <div id="updateBanner" class="update-banner">
- <strong>نسخه جدید گاردیس منتشر شد!</strong>
- <p id="updateMessage">یک نسخه جدید برای دریافت آماده است.</p>
- <button class="primary" onclick="showPage('releases')">
-  مشاهده آپدیت
- </button>
+ <strong id="updateTitle">آپدیت جدید گاردیس!</strong>
+ <p id="updateMessage">یک نسخه جدید آماده دریافت است.</p>
+ <div class="update-actions">
+  <button id="updateNowButton" class="primary" style="display:none">
+   تأیید و به‌روزرسانی
+  </button>
+  <button class="secondary" onclick="showPage('releases')">
+   مشاهده آپدیت‌ها
+  </button>
+ </div>
 </div>
 
 <section id="home" class="page active">
@@ -414,12 +326,18 @@ footer{
 
 const CURRENT_VERSION = "1.0.0";
 
+let swRegistration = null;
+let waitingWorker = null;
+let isReloading = false;
+
 function showPage(id){
  document.querySelectorAll('.page').forEach(page=>{
   page.classList.remove('active');
  });
+
  const page=document.getElementById(id);
  if(page) page.classList.add('active');
+
  window.scrollTo({top:0,behavior:'smooth'});
 }
 
@@ -431,6 +349,7 @@ function demoMessage(event){
 function compareVersions(a,b){
  const x=String(a).split('.').map(Number);
  const y=String(b).split('.').map(Number);
+
  for(let i=0;i<Math.max(x.length,y.length);i++){
   const n=x[i]||0;
   const m=y[i]||0;
@@ -454,39 +373,131 @@ function makeNotes(list){
  if(!Array.isArray(list)||list.length===0){
   return '<li>توضیحات این نسخه ثبت نشده است.</li>';
  }
+
  return list.map(item=>'<li>'+escapeHTML(item)+'</li>').join('');
 }
 
 function safeURL(value){
  if(!value)return null;
+
  try{
   const url=new URL(value,window.location.href);
+
   if(url.protocol==='https:'||url.protocol==='http:'){
    return url.href;
   }
+
   return null;
  }catch(error){
   return null;
  }
 }
 
+function showUpdateBanner(title,message){
+ const banner=document.getElementById('updateBanner');
+
+ banner.style.display='block';
+ document.getElementById('updateTitle').textContent=title;
+ document.getElementById('updateMessage').textContent=message;
+}
+
+function showWaitingUpdate(worker){
+ if(!worker)return;
+
+ waitingWorker=worker;
+
+ showUpdateBanner(
+  'آپدیت جدید گاردیس آماده است!',
+  'برای دریافت نسخه جدید، دکمه تأیید و به‌روزرسانی را بزن.'
+ );
+
+ const button=document.getElementById('updateNowButton');
+ button.style.display='inline-block';
+ button.disabled=false;
+ button.textContent='تأیید و به‌روزرسانی';
+}
+
+function applyUpdate(){
+ if(!waitingWorker)return;
+
+ const button=document.getElementById('updateNowButton');
+
+ button.disabled=true;
+ button.textContent='در حال به‌روزرسانی...';
+
+ waitingWorker.postMessage('GARDIS_SKIP_WAITING');
+}
+
+async function registerGARDISServiceWorker(){
+ if(!('serviceWorker' in navigator))return;
+
+ if(location.protocol!=='https:'&&location.hostname!=='localhost'){
+  return;
+ }
+
+ try{
+  swRegistration=await navigator.serviceWorker.register(
+   './service-worker.js',
+   {scope:'./'}
+  );
+
+  console.log('GARDIS Service Worker:',swRegistration.scope);
+
+  if(swRegistration.waiting){
+   showWaitingUpdate(swRegistration.waiting);
+  }
+
+  swRegistration.addEventListener('updatefound',()=>{
+   const newWorker=swRegistration.installing;
+
+   if(!newWorker)return;
+
+   newWorker.addEventListener('statechange',()=>{
+    if(
+     newWorker.state==='installed' &&
+     navigator.serviceWorker.controller
+    ){
+     showWaitingUpdate(newWorker);
+    }
+   });
+  });
+
+  try{
+   await swRegistration.update();
+  }catch(updateError){
+   console.warn('GARDIS update check:',updateError);
+  }
+
+ }catch(error){
+  console.error('GARDIS Service Worker error:',error);
+ }
+}
+
 async function loadReleases(){
  const status=document.getElementById('releaseStatus');
+
  try{
   const response=await fetch('./releases.json?v='+Date.now(),{
    cache:'no-store'
   });
-  if(!response.ok) throw new Error('فایل نسخه‌ها پیدا نشد.');
+
+  if(!response.ok)throw new Error('فایل نسخه‌ها پیدا نشد.');
 
   const data=await response.json();
-  if(!data.latest_version) throw new Error('اطلاعات نسخه معتبر نیست.');
+
+  if(!data.latest_version){
+   throw new Error('اطلاعات نسخه معتبر نیست.');
+  }
 
   document.getElementById('latestVersion').textContent=
    'نسخه '+data.latest_version;
+
   document.getElementById('latestDate').textContent=
    'تاریخ انتشار: '+(data.release_date||'نامشخص');
+
   document.getElementById('latestNotes').innerHTML=
    makeNotes(data.release_notes);
+
   document.getElementById('platformLabel').textContent=
    data.platform==='android'?'نسخه اندروید':'نسخه وب';
 
@@ -497,26 +508,30 @@ async function loadReleases(){
    download.href=downloadURL;
    download.style.display='inline-block';
    download.textContent=data.platform==='android'
-    ?'دریافت فایل APK':'باز کردن وب‌اپ';
+    ?'دریافت فایل APK'
+    :'باز کردن وب‌اپ';
   }else{
    download.style.display='none';
   }
 
   if(compareVersions(data.latest_version,CURRENT_VERSION)>0){
-   document.getElementById('updateBanner').style.display='block';
-   document.getElementById('updateMessage').textContent=
+   showUpdateBanner(
+    'نسخه جدید گاردیس منتشر شد!',
     'نسخه '+data.latest_version+
-    ' منتشر شده است. نسخه فعلی این صفحه '+CURRENT_VERSION+' است.';
-  }else{
-   document.getElementById('updateBanner').style.display='none';
+    ' منتشر شده است. نسخه فعلی صفحه '+CURRENT_VERSION+' است.'
+   );
   }
 
   renderHistory(data);
   status.textContent='اطلاعات نسخه با موفقیت دریافت شد.';
+
  }catch(error){
-  status.textContent='دریافت اطلاعات نسخه ناموفق بود. اتصال اینترنت را بررسی کن.';
+  status.textContent=
+   'دریافت اطلاعات نسخه ناموفق بود. اتصال اینترنت را بررسی کن.';
+
   document.getElementById('releaseHistory').innerHTML=
    '<div class="card empty">فعلاً امکان دریافت تاریخچه نسخه‌ها وجود ندارد.</div>';
+
   console.error('GARDIS releases error:',error);
  }
 }
@@ -524,13 +539,16 @@ async function loadReleases(){
 function renderHistory(data){
  const history=document.getElementById('releaseHistory');
  const releases=Array.isArray(data.releases)?data.releases:[];
+
  if(!releases.length){
-  history.innerHTML='<div class="card empty">هنوز نسخه دیگری منتشر نشده است.</div>';
+  history.innerHTML=
+   '<div class="card empty">هنوز نسخه دیگری منتشر نشده است.</div>';
   return;
  }
 
  history.innerHTML=releases.map(release=>{
   const url=safeURL(release.download_url);
+
   const downloadButton=url
    ?'<a class="download-link" href="'+escapeHTML(url)+'">دریافت این نسخه</a>'
    :'';
@@ -538,8 +556,12 @@ function renderHistory(data){
   return `
    <div class="card release-card">
     <div class="release-head">
-     <strong class="version">نسخه ${escapeHTML(release.version||'نامشخص')}</strong>
-     <span class="release-date">${escapeHTML(release.date||'')}</span>
+     <strong class="version">
+      نسخه ${escapeHTML(release.version||'نامشخص')}
+     </strong>
+     <span class="release-date">
+      ${escapeHTML(release.date||'')}
+     </span>
     </div>
     <ul class="release-notes">${makeNotes(release.notes)}</ul>
     ${downloadButton}
@@ -548,21 +570,17 @@ function renderHistory(data){
  }).join('');
 }
 
-/* GARDIS Service Worker */
-async function registerGARDISServiceWorker(){
- if(!('serviceWorker' in navigator)) return;
- if(location.protocol!=='https:' && location.hostname!=='localhost') return;
+document.getElementById('updateNowButton').addEventListener(
+ 'click',
+ applyUpdate
+);
 
- try{
-  const registration=await navigator.serviceWorker.register(
-   './service-worker.js',
-   {scope:'./'}
-  );
-  console.log('GARDIS Service Worker registered:',registration.scope);
- }catch(error){
-  console.error('GARDIS Service Worker error:',error);
- }
-}
+navigator.serviceWorker?.addEventListener('controllerchange',()=>{
+ if(isReloading)return;
+
+ isReloading=true;
+ window.location.reload();
+});
 
 document.addEventListener('DOMContentLoaded',()=>{
  loadReleases();
